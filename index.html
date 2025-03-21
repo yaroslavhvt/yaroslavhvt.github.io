@@ -50,12 +50,13 @@
         }
         .avatar-decoration {
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            pointer-events: none; /* Чтобы декорация не мешала взаимодействию */
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 110%; /* 10% larger than the avatar */
+            height: 110%; /* 10% larger than the avatar */
+            object-fit: contain; /* Ensures the image fits within the container */
+            pointer-events: none; /* Prevents interaction with the decoration */
             z-index: 3;
         }
         .name {
@@ -199,7 +200,7 @@
 <body>
     <div class="avatar-container">
         <img src="materials/avatar.png" alt="Avatar" class="avatar">
-        <img src="https://raw.githubusercontent.com/ItsPi3141/discord-fake-avatar-decorations/refs/heads/main/public/decorations/soul_leaving_body_blue.png" alt="Decoration" class="avatar-decoration">
+        <img src="materials/soul_leaving_body_blue.png" alt="Decoration" class="avatar-decoration">
     </div>
     <div class="name">sevcator</div>
     <div class="bio-container">
@@ -218,39 +219,40 @@ Avatar - Sato Matsuzaka (Happy Sugar Life)
 
 ;)</span>
         </div>
+    </div>
     <div class="button-container">
         <a href="https://t.me/sevcator" class="button2">
-            <img src="materials\telegram.png" alt="Telegram">Telegram
+            <img src="materials/telegram.png" alt="Telegram">Telegram
         </a>
         <a href="https://youtube.com/@sevcator" class="button">
-            <img src="materials\youtube.png" alt="YouTube">YouTube
+            <img src="materials/youtube.png" alt="YouTube">YouTube
         </a>
         <a href="https://soundcloud.com/sevcator" class="button2">
-            <img src="materials\soundcloud.png" alt="SoundCloud">SoundCloud
+            <img src="materials/soundcloud.png" alt="SoundCloud">SoundCloud
         </a>
         <a class="copy-button" onclick="copyToClipboard('@sevcator')">
-            <img src="materials\discord.png" alt="Discord">Discord
+            <img src="materials/discord.png" alt="Discord">Discord
         </a>
         <a href="https://tiktok.com/@sevcator" class="button2">
-            <img src="materials\tiktok.png" alt="TikTok">TikTok
+            <img src="materials/tiktok.png" alt="TikTok">TikTok
         </a>   
         <a href="https://github.com/sevcator/" class="button2">
-            <img src="materials\github.png" alt="GitHub">GitHub
+            <img src="materials/github.png" alt="GitHub">GitHub
         </a>
         <a href="https://steamcommunity.com/id/rewined" class="button2">
-            <img src="materials\steam.png" alt="Steam">Steam
+            <img src="materials/steam.png" alt="Steam">Steam
         </a>
     </div>
 
     <script>
         const expandBioButton = document.querySelector('.expand-bio');
-	const bioExpanded = document.querySelector('.bio-expanded');
+        const bioExpanded = document.querySelector('.bio-expanded');
 
-	expandBioButton.addEventListener('click', (e) => {
-		e.preventDefault();
-		bioExpanded.classList.toggle('show');
-		expandBioButton.textContent = bioExpanded.classList.contains('show')? 'Minimize' : 'More...';
-	});
+        expandBioButton.addEventListener('click', (e) => {
+            e.preventDefault();
+            bioExpanded.classList.toggle('show');
+            expandBioButton.textContent = bioExpanded.classList.contains('show') ? 'Minimize' : 'More...';
+        });
         
         function copyToClipboard(text) {
             const tempInput = document.createElement('input');
